@@ -1,0 +1,22 @@
+managed implementation in class zbp_biglietto_r_fdb unique;
+strict ( 2 );
+
+define behavior for ZBIGLIETTO_R_FDB //alias <alias_name>
+persistent table zbiglietto_fdb
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Id_Biglietto;
+
+mapping for zbiglietto_fdb {
+Id_Biglietto = id_biglietto;
+Modificato_A = modificato_a;
+Modificato_Da = modificato_da;
+Creation_Da = creation_da;
+Creation_A = creation_a;
+}
+}

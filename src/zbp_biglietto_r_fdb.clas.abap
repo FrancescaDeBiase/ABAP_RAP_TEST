@@ -1,0 +1,5 @@
+CLASS zbp_biglietto_r_fdb DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zbiglietto_r_fdb.
+ENDCLASS.
+
+CLASS zbp_biglietto_r_fdb IMPLEMENTATION.
+ENDCLASS.

@@ -1,0 +1,19 @@
+@Metadata.layer: #CORE
+annotate view ZBIGLIETTO_P_FDB with
+{
+  @UI.selectionField: [{position: 10 }] // Aggiungi il campo filtro in alto
+  @UI.lineItem: [{ position: 10  }] //AGGIUNTO CAMPO NELLA TABELLA SOTTO
+  Id_Biglietto;
+  @UI.selectionField: [{position: 20 }] // Aggiungi il campo filtro in alto
+  @UI.lineItem: [{ position: 20  }] //AGGIUNTO CAMPO NELLA TABELLA SOTTO
+  Modificato_Da;
+  @UI.selectionField: [{position: 25 }] // Aggiungi il campo filtro in alto
+  @UI.lineItem: [{ position: 25  }] //AGGIUNTO CAMPO NELLA TABELLA SOTTO
+  Creation_Da;
+  @UI.selectionField: [{position: 30 }] // Aggiungi il campo filtro in alto
+  @UI.lineItem: [{ position: 30  }] //AGGIUNTO CAMPO NELLA TABELLA SOTTO
+  Creation_A;
+  @UI.selectionField: [{position: 35 }] // Aggiungi il campo filtro in alto
+  @UI.lineItem: [{ position: 35  }] //AGGIUNTO CAMPO NELLA TABELLA SOTTO
+  Modificato_A;
+}

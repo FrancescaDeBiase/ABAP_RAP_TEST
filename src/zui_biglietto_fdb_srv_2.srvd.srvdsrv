@@ -1,0 +1,4 @@
+@EndUserText.label: 'Odata Test'
+define service ZUI_BIGLIETTO_FDB_SRV_2 {
+  expose ZBIGLIETTO_P_FDB;
+}
