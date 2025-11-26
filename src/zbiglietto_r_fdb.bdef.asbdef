@@ -5,12 +5,13 @@ define behavior for ZBIGLIETTO_R_FDB //alias <alias_name>
 persistent table zbiglietto_fdb
 lock master
 authorization master ( instance )
-//etag master <field_name>
+etag master Modificato_Da
 {
   create ( authorization : global );
   update;
   delete;
-  field ( readonly ) Id_Biglietto;
+  field ( mandatory : create ) Id_Biglietto;
+  field ( readonly: update ) Id_Biglietto;
 
 mapping for zbiglietto_fdb {
 Id_Biglietto = id_biglietto;

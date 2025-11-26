@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_BIGL_FDB_V2'
+@MappingRole: true
+define role ZR_BIGL_FDB_V2 {
+  grant select on ZR_BIGL_FDB_V2
+  where TRUE;
+}

@@ -1,0 +1,49 @@
+managed implementation in class ZBP_R_BIGL_FDB_V2 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_BIGL_FDB_V2 alias Biglietto
+persistent table ZBIGL_FDB_V2
+extensible
+draft table ZBIGL_FDB_V2_D
+etag master Locallastchange
+lock master total etag ModificatoA
+authorization master( global )
+early numbering
+{
+//  field ( mandatory : create )
+//   IdBiglietto;
+
+  field ( readonly )
+   CreationDa,
+   CreationA,
+   ModificatoDa,
+   ModificatoA,
+   Locallastchange;
+
+// field ( readonly : update )
+//  IdBiglietto;
+
+ field ( readonly  )
+  IdBiglietto;
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZBIGL_FDB_V2 corresponding extensible
+  {
+    IdBiglietto = id_biglietto;
+    CreationDa = creation_da;
+    CreationA = creation_a;
+    ModificatoDa = modificato_da;
+    ModificatoA = modificato_a;
+    Locallastchange = locallastchange;
+  }
+
+}

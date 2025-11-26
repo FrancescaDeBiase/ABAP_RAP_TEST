@@ -1,10 +1,35 @@
 @Metadata.layer: #CORE
+@UI.headerInfo:{ typeName: 'Biglietto',
+typeNamePlural: 'Biglietti',
+title: {
+type: #STANDARD,
+value: 'Id_Biglietto'},
+description: {
+type: #STANDARD,
+value: 'Modificato_Da' }}
 annotate view ZBIGLIETTO_P_FDB with
 {
-  @UI.selectionField: [{position: 10 }] // Aggiungi il campo filtro in alto
-  @UI.lineItem: [{ position: 10  }] //AGGIUNTO CAMPO NELLA TABELLA SOTTO
+  @EndUserText.label: 'Id biglietto'
+  @UI.facet: [ {
+      label: 'General Information',
+      id: 'GeneralInfo',
+      purpose: #STANDARD,
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE
+  }]
+  
+@UI.selectionField: [{
+      position: 10
+  }]
+  @UI.lineItem: [{
+      position: 10
+   }]
+  @UI.identification: [{
+   position: 10 }]
   Id_Biglietto;
   @UI.selectionField: [{position: 20 }] // Aggiungi il campo filtro in alto
+    @UI.identification: [{
+   position: 20 }]
   @UI.lineItem: [{ position: 20  }] //AGGIUNTO CAMPO NELLA TABELLA SOTTO
   Modificato_Da;
   @UI.selectionField: [{position: 25 }] // Aggiungi il campo filtro in alto
