@@ -1,37 +1,39 @@
 @Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@Endusertext: {
-  Label: '###GENERATED Core Data Service Entity'
+@EndUserText: {
+  label: '###GENERATED Core Data Service Entity'
 }
-@Objectmodel: {
-  Sapobjectnodetype.Name: 'ZBIGL_FDB_V2'
+@ObjectModel: {
+  sapObjectNodeType.name: 'ZBIGL_FDB_V2'
 }
 @AccessControl.authorizationCheck: #MANDATORY
 define root view entity ZC_BIGL_FDB_V2
-  provider contract TRANSACTIONAL_QUERY
+  provider contract transactional_query
   as projection on ZR_BIGL_FDB_V2
-  association [1..1] to ZR_BIGL_FDB_V2 as _BaseEntity on $projection.IDBIGLIETTO = _BaseEntity.IDBIGLIETTO
+  association [1..1] to ZR_BIGL_FDB_V2 as _BaseEntity on $projection.IdBiglietto = _BaseEntity.IdBiglietto
 {
   key IdBiglietto,
-  @Semantics: {
-    User.Createdby: true
-  }
-  CreationDa,
-  @Semantics: {
-    Systemdatetime.Createdat: true
-  }
-  CreationA,
-  @Semantics: {
-    User.Lastchangedby: true
-  }
-  ModificatoDa,
-  @Semantics: {
-    Systemdatetime.Lastchangedat: true
-  }
-  ModificatoA,
-  @Semantics: {
-    Systemdatetime.Localinstancelastchangedat: true
-  }
-  Locallastchange,
-  _BaseEntity
+      @Semantics: {
+        user.createdBy: true
+      }
+      CreationDa,
+      @Semantics: {
+        systemDateTime.createdAt: true
+      }
+      CreationA,
+      @Semantics: {
+        user.lastChangedBy: true
+      }
+      ModificatoDa,
+      @Semantics: {
+        systemDateTime.lastChangedAt: true
+      }
+      ModificatoA,
+      @Semantics: {
+        systemDateTime.localInstanceLastChangedAt: true
+      }
+      Locallastchange,
+      stato,
+      _BaseEntity,
+      Componenti :  redirected to composition child ZC_COMP_NN_FDB
 }

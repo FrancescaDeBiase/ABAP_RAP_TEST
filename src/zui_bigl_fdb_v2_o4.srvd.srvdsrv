@@ -6,6 +6,8 @@
     name: 'ZC_BIGL_FDB_V2'
   }
 }
-define service ZUI_BIGL_FDB_V2_O4 provider contracts odata_v4_ui {
+define service ZUI_BIGL_FDB_V2_O4
+  provider contracts odata_v4_ui {
   expose ZC_BIGL_FDB_V2 as Biglietto;
+  expose ZC_COMP_NN_FDB as Componenti;
 }

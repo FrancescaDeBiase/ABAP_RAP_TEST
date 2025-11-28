@@ -16,5 +16,18 @@ use etag
   use action Discard;
   use action Resume;
   use action Prepare;
+  use function GetDefaultsForCreate;
+  use action CustomDelete;
+  use association Componenti { create; with draft; }
+}
+define behavior for ZC_COMP_NN_FDB alias Componenti
+extensible
+use etag
+{
+ // use create;
+  use update;
+  use delete;
+
+use association Biglietto { with draft; }
 
 }

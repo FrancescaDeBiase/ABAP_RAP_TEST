@@ -3,30 +3,32 @@ strict ( 2 );
 with draft;
 extensible;
 define behavior for ZR_BIGL_FDB_V2 alias Biglietto
-persistent table ZBIGL_FDB_V2
+persistent table zbigl_fdb_v2
 extensible
-draft table ZBIGL_FDB_V2_D
+draft table zbigl_fdb_v2_d
 etag master Locallastchange
-lock master total etag ModificatoA
-authorization master( global )
+lock  master total etag ModificatoA
+authorization master ( global )
 early numbering
 {
-//  field ( mandatory : create )
-//   IdBiglietto;
+  //  field ( mandatory : create )
+  //   IdBiglietto;
 
   field ( readonly )
-   CreationDa,
-   CreationA,
-   ModificatoDa,
-   ModificatoA,
-   Locallastchange;
+  CreationDa,
+  CreationA,
+  ModificatoDa,
+  ModificatoA,
+  Locallastchange;
+  //stato;
 
-// field ( readonly : update )
-//  IdBiglietto;
+  // field ( readonly : update )
+  //  IdBiglietto;
 
- field ( readonly  )
+  field ( features : instance ) Stato;
+  field ( readonly )
   IdBiglietto;
-  create;
+  create { default function GetDefaultsForCreate; }
   update;
   delete;
 
@@ -35,15 +37,67 @@ early numbering
   draft action Edit;
   draft action Resume;
   draft determine action Prepare;
+  action ( features : instance ) CustomDelete result [1] $self;
+  determination onSave on save { create; }
+  validation checkStatus on save { field Stato; }
 
-  mapping for ZBIGL_FDB_V2 corresponding extensible
+  mapping for zbigl_fdb_v2 corresponding extensible
+    {
+      IdBiglietto  = id_biglietto;
+      CreationDa   = creation_da;
+      CreationA    = creation_a;
+      ModificatoDa = modificato_da;
+      ModificatoA  = modificato_a;
+      //Locallastchange = locallastchange;
+      stato        = stato;
+    }
+association Componenti { create; with draft; }
+}
+
+define behavior for ZR_COMP_NN_FDB alias Componenti
+persistent table ZCOMP_NN_FDB
+extensible
+draft table ZCOMP_NN_FDB_D
+etag dependent
+lock dependent
+authorization dependent
+//early numbering
+{
+  field ( mandatory : create )
+   //IdBiglietto,
+   Progressivo;
+
+  field ( readonly )
+   AbpCreationUser,
+   AbpCreationTstmpl,
+   AbpLastchangeUser,
+   AbpLastchangeTstmpl,
+   IdBiglietto;
+  // AbpLocinstLastchangeTstmpl;
+
+  field ( readonly : update )
+  // IdBiglietto,
+   Progressivo;
+
+  update;
+  delete;
+
+  //draft action Activate optimized;
+ // draft action Discard;
+  //draft action Edit;
+  //draft action Resume;
+//  draft determine action Prepare;
+
+  mapping for ZCOMP_NN_FDB corresponding extensible
   {
     IdBiglietto = id_biglietto;
-    CreationDa = creation_da;
-    CreationA = creation_a;
-    ModificatoDa = modificato_da;
-    ModificatoA = modificato_a;
-    Locallastchange = locallastchange;
+    Progressivo = progressivo;
+    TipoUtente = tipo_utente;
+    AbpCreationUser = abp_creation_user;
+    AbpCreationTstmpl = abp_creation_tstmpl;
+    AbpLastchangeUser = abp_lastchange_user;
+    AbpLastchangeTstmpl = abp_lastchange_tstmpl;
+//    AbpLocinstLastchangeTstmpl = abp_locinst_lastchange_tstmpl;
   }
-
+association Biglietto  { with draft; }
 }

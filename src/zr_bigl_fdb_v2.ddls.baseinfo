@@ -6,7 +6,9 @@
 "ZBIGL_FDB_V2"
 ],
 "ASSOCIATED":
-[],
+[
+"ZR_COMP_NN_FDB"
+],
 "BASE":
 [],
 "ANNO_REF":

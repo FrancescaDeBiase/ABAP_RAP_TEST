@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZCOMP_NN_FDB",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZCOMP_NN_FDB",
+  "sapObjectType": "ZCOMP_NN_FDB",
+  "rootNode": true
+}

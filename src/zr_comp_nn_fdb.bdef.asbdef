@@ -1,0 +1,51 @@
+managed implementation in class ZBP_R_COMP_NN_FDB unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_COMP_NN_FDB alias ZrCompNnFdb
+persistent table ZCOMP_NN_FDB
+extensible
+draft table ZCOMP_NN_FDB_D
+etag master AbpLocinstLastchangeTstmpl
+lock master total etag AbpLastchangeTstmpl
+authorization master( global )
+{
+  field ( mandatory : create )
+   IdBiglietto,
+   Progressivo;
+
+  field ( readonly )
+   AbpCreationUser,
+   AbpCreationTstmpl,
+   AbpLastchangeUser,
+   AbpLastchangeTstmpl,
+   AbpLocinstLastchangeTstmpl;
+
+  field ( readonly : update )
+   IdBiglietto,
+   Progressivo;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCOMP_NN_FDB corresponding extensible
+  {
+    IdBiglietto = id_biglietto;
+    Progressivo = progressivo;
+    TipoUtente = tipo_utente;
+    AbpCreationUser = abp_creation_user;
+    AbpCreationTstmpl = abp_creation_tstmpl;
+    AbpLastchangeUser = abp_lastchange_user;
+    AbpLastchangeTstmpl = abp_lastchange_tstmpl;
+    AbpLocinstLastchangeTstmpl = abp_locinst_lastchange_tstmpl;
+  }
+
+}

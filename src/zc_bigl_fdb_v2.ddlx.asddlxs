@@ -6,89 +6,119 @@
 annotate view ZC_BIGL_FDB_V2 with
 {
   @UI.facet: [ {
-    label: 'General Information', 
-    id: 'GeneralInfo', 
-    purpose: #STANDARD, 
-    position: 10 , 
+    label: 'General Information',
+    id: 'GeneralInfo',
+    purpose: #STANDARD,
+    position: 10 ,
     type: #IDENTIFICATION_REFERENCE
-  } ]
+  },
+  {  label: 'Componenti',
+    id: 'Componenti',
+    purpose: #STANDARD,
+    position: 20,
+      type: #LINEITEM_REFERENCE,
+   targetElement: 'Componenti' }]
   @UI.identification: [ {
-    position: 10 
+    position: 10},
+  { position: 10, type: #FOR_ACTION,
+  dataAction: 'CustomDelete',
+  label:'Elimina'
   } ]
   @UI.lineItem: [ {
-    position: 10 
+    position: 10
+  },
+  //  ]
+  { position: 10, type: #FOR_ACTION,
+  dataAction: 'CustomDelete',
+  label:'Elimina'
   } ]
   @UI.selectionField: [ {
-    position: 10 
+    position: 10
   } ]
   IdBiglietto;
-  
+
+  @EndUserText.label: 'Stato'
   @UI.identification: [ {
-    position: 20 
+    position: 15 ,
+    label: 'Stato'
   } ]
   @UI.lineItem: [ {
-    position: 20 
+    position: 15 ,
+    label: 'Stato'
   } ]
   @UI.selectionField: [ {
-    position: 20 
+    position: 15
+  } ]
+  stato;
+
+  @UI.identification: [ {
+    position: 20
+  } ]
+  @UI.lineItem: [ {
+    position: 20
+  } ]
+  @UI.selectionField: [ {
+    position: 20
   } ]
   CreationDa;
-  
+
   @UI.identification: [ {
-    position: 30 
+    position: 30
   } ]
   @UI.lineItem: [ {
-    position: 30 
+    position: 30
   } ]
   @UI.selectionField: [ {
-    position: 30 
+    position: 30
   } ]
   CreationA;
-  
+
   @UI.identification: [ {
-    position: 40 
+    position: 40
   } ]
   @UI.lineItem: [ {
-    position: 40 
+    position: 40
   } ]
   @UI.selectionField: [ {
-    position: 40 
+    position: 40
   } ]
   ModificatoDa;
-  
+
   @UI.identification: [ {
-    position: 50 
+    position: 50
   } ]
   @UI.lineItem: [ {
-    position: 50 
+    position: 50
   } ]
   @UI.selectionField: [ {
-    position: 50 
+    position: 50
   } ]
   ModificatoA;
-  
-  @UI.identification: [ {
-    position: 60 
-  } ]
-  @UI.lineItem: [ {
-    position: 60 
-  } ]
-  @UI.selectionField: [ {
-    position: 60 
-  } ]
-  Locallastchange;
-  
+
+  //  @UI.identification: [ {
+  //    position: 60
+  //  } ]
+  //  @UI.lineItem: [ {
+  //    position: 60
+  //  } ]
+  //  @UI.selectionField: [ {
+  //    position: 60
+  //  } ]
+  //  Locallastchange;
+
   @EndUserText.label: '_BaseEntity'
   @UI.identification: [ {
-    position: 70 , 
+    position: 70 ,
     label: '_BaseEntity'
   } ]
   @UI.lineItem: [ {
-    position: 70 , 
+    position: 70 ,
     label: '_BaseEntity'
   } ]
   @UI.selectionField: [ {
-    position: 70 
+    position: 70
   } ]
   _BaseEntity;
+
+
 }

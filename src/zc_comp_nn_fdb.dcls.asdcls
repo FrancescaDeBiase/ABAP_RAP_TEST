@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_COMP_NN_FDB'
+@MappingRole: true
+define role ZC_COMP_NN_FDB {
+  grant select on ZC_COMP_NN_FDB
+  where INHERITING CONDITIONS FROM ENTITY ZR_COMP_NN_FDB REPLACING { ROOT WITH _BaseEntity };
+}
